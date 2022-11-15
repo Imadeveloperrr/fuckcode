@@ -12,7 +12,7 @@ int count=1;
 int speed = 10;
 
 void TaskBlink( void *pvParameters );
-void TaskButton( void *pvParameters );
+//void TaskButton( void *pvParameters );
 //void TaskAnalogRead( void *pvParameters );
 
 void setup()
