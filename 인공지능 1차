@@ -1,0 +1,45 @@
+# salmon_length = ['60', '68', '80', '75', '84']
+# salmon__tail = ['11', '18', '15', '13', '20']
+salmon_length = []
+salmon__tail = []
+# bass_length = ['99', '102', '110', '85', '82']
+# bass_tail = ['12', '9', '5', '8', '7']
+# bass_data = [[l, w] for l, w in zip(bass_length, bass_tail)]
+bass_length = []
+bass_tail = []
+# fd = open('dataset.txt', 'w')
+# for l, w in zip(salmon_length, salmon__tail):
+#     fd.write(l + ' ' + w + '\n')
+# for l, w in zip(bass_length, bass_tail):
+#     fd.write(l + ' ' + w + '\n')
+# fd.close()
+
+fd = open('dataset.txt', 'r')
+fish_data = fd.readlines()
+fd.close
+fish_data = [line.rstrip('\n') for line in fish_data]
+
+for i in range(0, 10):
+    b=fish_data[i].split()
+    if i < 5:
+        salmon_length.append(b[0])
+        salmon__tail.append(b[1])
+    else:
+        bass_length.append(b[0])
+        bass_tail.append(b[1])
+
+fish_result=''
+fd = open('output_result.txt', 'w')
+for l, w in zip(salmon_length, salmon__tail):
+    if(int(l) < 85 and int(w) > 10):
+        fish_result = 'salmon'
+    else:
+        fish_result = 'bass'
+    fd.write(l + ' ' + w + ' ==> ' + fish_result + '\n')
+for l, w in zip(bass_length, bass_tail):
+    if(int(l) < 111 and int(w) < 13):
+        fish_result = 'bass'
+    else:
+        fish_result = 'bass'
+    fd.write(l + ' ' + w + ' ==> ' + fish_result + '\n')
+fd.close()
